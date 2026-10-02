@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caribbean Club Market — Tampa, FL</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI', Arial, sans-serif; background:#fff8f0; color:#222; line-height:1.55; }
+  .wrap { max-width:640px; margin:0 auto; background:#fff; box-shadow:0 0 30px rgba(0,0,0,.08); }
+  /* Sticky nav */
+  nav { position:sticky; top:0; z-index:50; background:#fff; display:flex; align-items:center; justify-content:space-between; padding:8px 14px; border-bottom:3px solid #1d7a3a; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+  nav img { height:44px; width:auto; }
+  .lang { display:flex; background:#f0f0f0; border-radius:20px; padding:3px; font-size:.8rem; font-weight:800; }
+  .lang button { border:none; background:transparent; padding:6px 12px; border-radius:16px; font-weight:800; font-size:.8rem; cursor:pointer; color:#666; }
+  .lang button.on { background:#1d7a3a; color:#fff; }
+  /* Hero */
+  .hero { position:relative; text-align:center; color:#fff; padding:56px 20px 44px; background:url('imgs/produce.jpg') center/cover; }
+  .hero::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,40,20,.78),rgba(10,40,20,.55)); }
+  .hero > * { position:relative; z-index:1; }
+  .hero .kicker { display:inline-block; background:#e8760a; font-weight:800; font-size:.8rem; letter-spacing:2px; padding:6px 16px; border-radius:20px; margin-bottom:14px; }
+  .hero h1 { font-size:2.1rem; line-height:1.15; font-weight:900; text-shadow:0 2px 8px rgba(0,0,0,.4); }
+  .hero h1 .gold { color:#ffd964; }
+  .hero p { margin-top:10px; font-size:1.02rem; opacity:.95; }
+  .hero .btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
+  .btn { display:inline-block; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:800; font-size:.95rem; }
+  .btn.call { background:#e8760a; color:#fff; box-shadow:0 4px 12px rgba(232,118,10,.5); }
+  .btn.dir { background:rgba(255,255,255,.15); color:#fff; border:2px solid #fff; }
+  .hero .rating { display:inline-block; margin-top:14px; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); border-radius:20px; padding:5px 16px; font-weight:700; font-size:.9rem; }
+  /* Ticker */
+  .ticker { background:#1d7a3a; color:#fff; overflow:hidden; white-space:nowrap; padding:10px 0; font-weight:800; letter-spacing:1px; font-size:.9rem; }
+  .ticker span { display:inline-block; padding-left:100%; animation:tick 22s linear infinite; }
+  @keyframes tick { to { transform:translateX(-100%); } }
+  /* Stats */
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); background:#0f3d1f; color:#fff; text-align:center; }
+  .stats div { padding:16px 6px; border-right:1px solid rgba(255,255,255,.15); }
+  .stats div:last-child { border-right:none; }
+  .stats .n { font-size:1.4rem; font-weight:900; color:#ffd964; }
+  .stats .l { font-size:.75rem; opacity:.9; }
+  section { padding:30px 20px; }
+  section h2 { color:#b3540a; font-size:1.55rem; margin-bottom:6px; text-align:center; }
+  section .lede { text-align:center; color:#666; margin-bottom:20px; font-size:.95rem; }
+  .brandon { background:linear-gradient(100deg,#1d7a3a,#35b558); color:#fff; text-align:center; padding:18px; border-radius:16px; margin-bottom:24px; box-shadow:0 6px 18px rgba(29,122,58,.35); }
+  .brandon .t { font-size:1.25rem; font-weight:900; }
+  .brandon .d { font-size:.92rem; opacity:.95; margin-top:4px; }
+  .sale-head { background:linear-gradient(90deg,#d61f2c,#f66a1f); color:#fff; text-align:center; border-radius:14px; padding:16px; margin-bottom:18px; box-shadow:0 4px 14px rgba(214,31,44,.3); }
+  .sale-head .t { font-size:1.35rem; font-weight:900; }
+  .sale-head .d { font-size:.9rem; opacity:.95; }
+  .ofertas { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .of { position:relative; background:#fff; border-radius:16px; padding:18px 12px 14px; text-align:center; box-shadow:0 4px 14px rgba(0,0,0,.1); border:2px solid #f5b942; overflow:hidden; }
+  .of .ribbon { position:absolute; top:10px; right:-28px; transform:rotate(45deg); background:#d61f2c; color:#fff; font-size:.65rem; font-weight:800; padding:3px 30px; letter-spacing:1px; }
+  .of .pr { font-size:1.8rem; font-weight:900; color:#d61f2c; }
+  .of .pr small { font-size:.9rem; }
+  .of h3 { font-size:.95rem; margin:6px 0 2px; }
+  .of p { font-size:.8rem; color:#777; }
+  .of.dest { border-color:#d61f2c; background:#fff7f7; }
+  .nota { text-align:center; font-size:.78rem; color:#999; margin-top:14px; }
+  /* Gallery */
+  .gal { display:grid; grid-template-columns:1fr; gap:16px; }
+  .gcard { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.15); }
+  .gcard img { width:100%; display:block; height:220px; object-fit:cover; }
+  .gcard .cap { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(0deg,rgba(0,0,0,.75),transparent); color:#fff; padding:26px 16px 12px; font-weight:800; font-size:1.05rem; }
+  /* Departments */
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .card { background:#fff; border-radius:16px; padding:18px 12px; box-shadow:0 4px 14px rgba(0,0,0,.08); border-top:5px solid #e8760a; text-align:center; transition:transform .2s; }
+  .card .e { font-size:2rem; }
+  .card h3 { font-size:1rem; margin:6px 0 2px; color:#1d7a3a; }
+  .card p { font-size:.83rem; color:#666; }
+  /* Why */
+  .why { background:linear-gradient(135deg,#0f3d1f,#1d7a3a); color:#fff; border-radius:16px; padding:24px 20px; box-shadow:0 6px 18px rgba(15,61,31,.3); }
+  .why h3 { color:#ffd964; margin-bottom:10px; font-size:1.15rem; }
+  .why ul { padding-left:20px; font-size:.95rem; }
+  .why li { margin-bottom:8px; }
+  .why li::marker { content:"✔ "; color:#ffd964; }
+  /* Reviews */
+  .rev { background:#fff; border-radius:16px; padding:20px; box-shadow:0 4px 14px rgba(0,0,0,.08); border:1px solid #eee; text-align:center; margin-top:18px; }
+  .rev .stars { color:#f5a623; font-size:1.4rem; letter-spacing:2px; }
+  .rev p { font-size:.9rem; color:#555; margin:8px 0 12px; }
+  .rev a { display:inline-block; background:#1d7a3a; color:#fff; text-decoration:none; font-weight:800; padding:10px 22px; border-radius:30px; font-size:.9rem; }
+  .info { background:#0f3d1f; color:#f5f5f5; }
+  .info h2 { color:#ffd964; }
+  .info .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
+  .info .box { background:rgba(255,255,255,.08); border-radius:12px; padding:14px; }
+  .info .box h3 { color:#ffd964; font-size:.95rem; margin-bottom:6px; }
+  .info .box p, .info .box a { font-size:.9rem; color:#f5f5f5; text-decoration:none; }
+  .qr { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .qr .q { background:#fff; border-radius:14px; padding:14px; text-align:center; box-shadow:0 3px 10px rgba(0,0,0,.07); width:150px; }
+  .qr .q img { width:120px; height:120px; }
+  .qr .q p { font-size:.8rem; font-weight:700; margin-top:6px; color:#1d7a3a; }
+  footer { text-align:center; padding:18px; font-size:.8rem; color:#999; background:#fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <img src="imgs/logo.png" alt="Caribbean Club Market">
+    <div class="lang"><button id="b-es" class="on" onclick="setLang('es')">ES</button><button id="b-en" onclick="setLang('en')">EN</button></div>
+  </nav>
+
+  <div class="hero">
+    <span class="kicker" data-es="PRECIOS AL POR MAYOR" data-en="WHOLESALE PRICES">PRECIOS AL POR MAYOR</span>
+    <h1 data-es='Sin membresía. <span class="gold">Sin trucos.</span>' data-en='No membership. <span class="gold">No tricks.</span>'>Sin membresía. <span class="gold">Sin trucos.</span></h1>
+    <p data-es="El mercado latino favorito de Tampa — compra al por mayor y al detalle." data-en="Tampa's favorite Latino market — shop wholesale and retail.">El mercado latino favorito de Tampa — compra al por mayor y al detalle.</p>
+    <div class="btns">
+      <a class="btn call" href="tel:+18132490091" data-es="📞 Llamar ahora" data-en="📞 Call now">📞 Llamar ahora</a>
+      <a class="btn dir" href="https://www.google.com/maps/search/?api=1&query=Caribbean+Club+Market+5902+Anderson+Rd+Tampa+FL+33634" data-es="📍 Cómo llegar" data-en="📍 Get directions">📍 Cómo llegar</a>
+    </div>
+    <div><span class="rating" data-es="★ 4.4 en Google" data-en="★ 4.4 on Google">★ 4.4 en Google</span></div>
+  </div>
+
+  <div class="ticker"><span data-es="🍛 COMIDA CALIENTE &nbsp;•&nbsp; 🥩 CARNICERÍA &nbsp;•&nbsp; 🐟 MARISCOS &nbsp;•&nbsp; 🥑 PRODUCE FRESCO &nbsp;•&nbsp; 🧀 DELI &nbsp;•&nbsp; ❄️ CONGELADOS &nbsp;•&nbsp; 🍛 COMIDA CALIENTE &nbsp;•&nbsp; 🥩 CARNICERÍA &nbsp;•&nbsp; 🐟 MARISCOS &nbsp;•&nbsp; 🥑 PRODUCE FRESCO &nbsp;•&nbsp; 🧀 DELI &nbsp;•&nbsp; ❄️ CONGELADOS &nbsp;•&nbsp;" data-en="🍛 HOT FOOD &nbsp;•&nbsp; 🥩 BUTCHER SHOP &nbsp;•&nbsp; 🐟 SEAFOOD &nbsp;•&nbsp; 🥑 FRESH PRODUCE &nbsp;•&nbsp; 🧀 DELI &nbsp;•&nbsp; ❄️ FROZEN &nbsp;•&nbsp; 🍛 HOT FOOD &nbsp;•&nbsp; 🥩 BUTCHER SHOP &nbsp;•&nbsp; 🐟 SEAFOOD &nbsp;•&nbsp; 🥑 FRESH PRODUCE &nbsp;•&nbsp; 🧀 DELI &nbsp;•&nbsp; ❄️ FROZEN &nbsp;•&nbsp;">🍛 COMIDA CALIENTE &nbsp;•&nbsp; 🥩 CARNICERÍA &nbsp;•&nbsp; 🐟 MARISCOS &nbsp;•&nbsp; 🥑 PRODUCE FRESCO &nbsp;•&nbsp; 🧀 DELI &nbsp;•&nbsp; ❄️ CONGELADOS &nbsp;•&nbsp; 🍛 COMIDA CALIENTE &nbsp;•&nbsp; 🥩 CARNICERÍA &nbsp;•&nbsp; 🐟 MARISCOS &nbsp;•&nbsp; 🥑 PRODUCE FRESCO &nbsp;•&nbsp; 🧀 DELI &nbsp;•&nbsp; ❄️ CONGELADOS &nbsp;•&nbsp;</span></div>
+
+  <div class="stats">
+    <div><div class="n">$0</div><div class="l" data-es="Membresía" data-en="Membership fee">Membresía</div></div>
+    <div><div class="n">2</div><div class="l" data-es="Sedes muy pronto" data-en="Locations coming soon">Sedes muy pronto</div></div>
+    <div><div class="n">7</div><div class="l" data-es="Días abiertos" data-en="Days open">Días abiertos</div></div>
+  </div>
+
+  <section>
+    <div class="brandon">
+      <div class="t" data-es="🎉 ¡Próximamente en Brandon!" data-en="🎉 Coming soon to Brandon!">🎉 ¡Próximamente en Brandon!</div>
+      <div class="d" data-es="Abrimos nuestra segunda sede muy pronto. ¡Espérala!" data-en="We're opening our second location very soon. Stay tuned!">Abrimos nuestra segunda sede muy pronto. ¡Espérala!</div>
+    </div>
+    <div class="sale-head">
+      <div class="t" data-es="🔥 ESPECIALES DE LA SEMANA" data-en="🔥 SPECIALS OF THE WEEK">🔥 ESPECIALES DE LA SEMANA</div>
+      <div class="d" data-es="Compra al por mayor y ahorra en grande" data-en="Shop like a wholesaler and save big">Compra al por mayor y ahorra en grande</div>
+    </div>
+    <div class="ofertas">
+      <div class="of dest"><div class="ribbon" data-es="OFERTA" data-en="DEAL">OFERTA</div><div class="pr">$0.99<small>/lb</small></div><h3 data-es="Pollo entero fresco" data-en="Fresh whole chicken">Pollo entero fresco</h3><p data-es="Ideal para la familia" data-en="Perfect for the family">Ideal para la familia</p></div>
+      <div class="of dest"><div class="ribbon" data-es="OFERTA" data-en="DEAL">OFERTA</div><div class="pr">$1.29<small>/lb</small></div><h3 data-es="Pernil de cerdo" data-en="Pork shoulder">Pernil de cerdo</h3><p data-es="Para tu lechón asado" data-en="For your roast pork">Para tu lechón asado</p></div>
+      <div class="of"><div class="pr">4 x $1</div><h3 data-es="Plátanos verdes" data-en="Green plantains">Plátanos verdes</h3><p data-es="De los buenos" data-en="The good ones">De los buenos</p></div>
+      <div class="of"><div class="pr">$12.99</div><h3 data-es="Arroz · saco 20 lb" data-en="Rice · 20 lb bag">Arroz · saco 20 lb</h3><p data-es="Precio al por mayor" data-en="Wholesale price">Precio al por mayor</p></div>
+      <div class="of"><div class="pr">$3.99<small>/lb</small></div><h3 data-es="Queso fresco del país" data-en="Fresh country cheese">Queso fresco del país</h3><p data-es="Recién llegado" data-en="Just arrived">Recién llegado</p></div>
+      <div class="of"><div class="pr">2 x $5</div><h3 data-es="Jugos tropicales" data-en="Tropical juices">Jugos tropicales</h3><p data-es="Parcha, tamarindo y más" data-en="Passion fruit, tamarind & more">Parcha, tamarindo y más</p></div>
+    </div>
+    <p class="nota" data-es="Precios de muestra para la demostración. Los especiales reales se actualizan cada semana." data-en="Sample prices for demonstration. Real specials update every week.">Precios de muestra para la demostración. Los especiales reales se actualizan cada semana.</p>
+  </section>
+
+  <section style="padding-top:0;">
+    <h2 data-es="De nuestro mercado" data-en="From our market">De nuestro mercado</h2>
+    <p class="lede" data-es="Fotos reales de Caribbean Club Market" data-en="Real photos of Caribbean Club Market">Fotos reales de Caribbean Club Market</p>
+    <div class="gal">
+      <div class="gcard"><img src="imgs/hotfood.jpg" alt="Comida caliente"><div class="cap" data-es="🍛 Comida caliente lista para llevar" data-en="🍛 Hot food ready to go">🍛 Comida caliente lista para llevar</div></div>
+      <div class="gcard"><img src="imgs/carnes.jpg" alt="Carnes frescas"><div class="cap" data-es="🥩 Carnes frescas al mejor precio" data-en="🥩 Fresh meats at the best price">🥩 Carnes frescas al mejor precio</div></div>
+      <div class="gcard"><img src="imgs/produce.jpg" alt="Frutas y vegetales"><div class="cap" data-es="🥑 Produce fresco todos los días" data-en="🥑 Fresh produce every day">🥑 Produce fresco todos los días</div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <h2 data-es="Departamentos" data-en="Departments">Departamentos</h2>
+    <p class="lede" data-es="Todo lo que buscas en un solo lugar" data-en="Everything you need in one place">Todo lo que buscas en un solo lugar</p>
+    <div class="cards">
+      <div class="card"><div class="e">🍛</div><h3 data-es="Comida caliente" data-en="Hot food">Comida caliente</h3><p data-es="Platos listos para llevar" data-en="Ready-to-go plates">Platos listos para llevar</p></div>
+      <div class="card"><div class="e">🥩</div><h3 data-es="Carnicería" data-en="Butcher shop">Carnicería</h3><p data-es="Cortes frescos todos los días" data-en="Fresh cuts every day">Cortes frescos todos los días</p></div>
+      <div class="card"><div class="e">🐟</div><h3 data-es="Mariscos" data-en="Seafood">Mariscos</h3><p data-es="Frescos y congelados" data-en="Fresh and frozen">Frescos y congelados</p></div>
+      <div class="card"><div class="e">🥑</div><h3 data-es="Produce" data-en="Produce">Produce</h3><p data-es="Frutas y vegetales frescos" data-en="Fresh fruits & vegetables">Frutas y vegetales frescos</p></div>
+      <div class="card"><div class="e">🧀</div><h3 data-es="Deli y lácteos" data-en="Deli & dairy">Deli y lácteos</h3><p data-es="Quesos, embutidos y más" data-en="Cheeses, cold cuts & more">Quesos, embutidos y más</p></div>
+      <div class="card"><div class="e">❄️</div><h3 data-es="Congelados" data-en="Frozen">Congelados</h3><p data-es="Al por mayor y al detalle" data-en="Wholesale and retail">Al por mayor y al detalle</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="why">
+      <h3 data-es="💰 ¿Por qué Caribbean Club?" data-en="💰 Why Caribbean Club?">💰 ¿Por qué Caribbean Club?</h3>
+      <ul>
+        <li data-es="<strong>Precios al por mayor</strong> sin pagar membresía" data-en="<strong>Wholesale prices</strong> with no membership fee"><strong>Precios al por mayor</strong> sin pagar membresía</li>
+        <li data-es="Compra <strong>al por mayor y al detalle</strong>: para tu casa o tu negocio" data-en="Shop <strong>wholesale and retail</strong>: for your home or your business">Compra <strong>al por mayor y al detalle</strong>: para tu casa o tu negocio</li>
+        <li data-es="Productos latinos y caribeños difíciles de encontrar" data-en="Hard-to-find Latino and Caribbean products">Productos latinos y caribeños difíciles de encontrar</li>
+        <li data-es="Comida caliente fresca todos los días" data-en="Fresh hot food every day">Comida caliente fresca todos los días</li>
+      </ul>
+    </div>
+    <div class="rev">
+      <div class="stars">★★★★★</div>
+      <p data-es="Con 4.4 estrellas en Google, nuestros clientes nos recomiendan. ¡Déjanos tu reseña!" data-en="With 4.4 stars on Google, our customers recommend us. Leave us a review!">Con 4.4 estrellas en Google, nuestros clientes nos recomiendan. ¡Déjanos tu reseña!</p>
+      <img src="qr/qr-review.png" alt="QR reseña en Google" style="width:150px;height:150px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.1);">
+      <p style="font-weight:800;color:#1d7a3a;margin:8px 0 12px;" data-es="📱 Escanea para dejarnos tu reseña" data-en="📱 Scan to leave us a review">📱 Escanea para dejarnos tu reseña</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=Caribbean+Club+Market+5902+Anderson+Rd+Tampa+FL+33634" data-es="⭐ Escribir reseña" data-en="⭐ Write a review">⭐ Escribir reseña</a>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <h2 data-es="Escanea y visítanos" data-en="Scan & visit us">Escanea y visítanos</h2>
+    <p class="lede" data-es="Guarda nuestra ubicación y página" data-en="Save our location and page">Guarda nuestra ubicación y página</p>
+    <div class="qr">
+      <div class="q"><img src="qr/qr-maps.png" alt="QR ubicación"><p data-es="Cómo llegar" data-en="Directions">Cómo llegar</p></div>
+      <div class="q"><img src="qr/qr-web.png" alt="QR página web"><p data-es="Nuestra página" data-en="Our website">Nuestra página</p></div>
+    </div>
+  </section>
+
+  <section class="info">
+    <h2 data-es="Horario y ubicación" data-en="Hours & location">Horario y ubicación</h2>
+    <div class="grid">
+      <div class="box">
+        <h3 data-es="📍 Dirección" data-en="📍 Address">📍 Dirección</h3>
+        <p>5902 Anderson Rd<br>Tampa, FL 33634</p>
+        <p style="margin-top:8px;">📞 <a href="tel:+18132490091">(813) 249-0091</a></p>
+      </div>
+      <div class="box">
+        <h3 data-es="🕐 Horario" data-en="🕐 Hours">🕐 Horario</h3>
+        <p data-es="Lun–Vie: 6am – 8pm<br>Sábado: 7am – 8pm<br>Domingo: 8am – 7pm" data-en="Mon–Fri: 6am – 8pm<br>Saturday: 7am – 8pm<br>Sunday: 8am – 7pm">Lun–Vie: 6am – 8pm<br>Sábado: 7am – 8pm<br>Domingo: 8am – 7pm</p>
+      </div>
+    </div>
+  </section>
+
+  <footer data-es="Página de demostración · Precios e imágenes de muestra" data-en="Demonstration page · Sample prices and images">Página de demostración · Precios e imágenes de muestra</footer>
+
+</div>
+<script>
+function setLang(l){
+  document.querySelectorAll('[data-es]').forEach(function(el){
+    el.innerHTML = el.dataset[l];
+  });
+  document.documentElement.lang = l;
+  document.getElementById('b-es').classList.toggle('on', l==='es');
+  document.getElementById('b-en').classList.toggle('on', l==='en');
+  try{ localStorage.setItem('ccm-lang', l); }catch(e){}
+}
+try{ var s = localStorage.getItem('ccm-lang'); if(s==='en'){ setLang('en'); } }catch(e){}
+</script>
+</body>
+</html>
